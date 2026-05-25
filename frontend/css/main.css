@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFCF8;
+    color: #2C2B28;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #C7A252;
+    --deep-navy: #1F3B4C;
+    --sand: #EADBC6;
+    --terracotta: #C67A3D;
+    --warm-white: #FFF9F0;
+    --shadow-md: 0 25px 35px -12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header amélioré avec transparence */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 252, 245, 0.92);
+    backdrop-filter: blur(12px);
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+.logo h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--deep-navy);
+    letter-spacing: -0.5px;
+}
+.logo p {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--terracotta);
+    font-weight: 500;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #2C2B28;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: var(--terracotta);
+}
+
+/* Hero section avec carrousel */
+.hero {
+    margin-top: 80px;
+    position: relative;
+    height: 90vh;
+    min-height: 650px;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 100%);
+    z-index: 2;
+}
+.hero-content {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    z-index: 3;
+    max-width: 650px;
+    color: white;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    animation: fadeUp 0.8s ease;
+}
+.hero-content h2 {
+    font-size: 3.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 1rem 0 1.8rem;
+}
+
+/* Section pourquoi nous */
+.features {
+    padding: 5rem 0;
+    background: var(--warm-white);
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--deep-navy);
+}
+.section-header span {
+    color: var(--terracotta);
+}
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.feature-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 32px;
+    text-align: center;
+    width: 260px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border: 1px solid #f0e5d8;
+}
+.feature-card i {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Galerie expériences locales */
+.local-experience {
+    padding: 4rem 0;
+    background: #F7F2EA;
+}
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.exp-item {
+    border-radius: 28px;
+    overflow: hidden;
+    background: white;
+}
+.exp-img {
+    height: 220px;
+    background-size: cover;
+    transition: 0.4s;
+}
+.exp-item:hover .exp-img {
+    transform: scale(1.03);
+}
+.exp-text {
+    padding: 1.5rem;
+}
+
+/* Section chambres détaillée */
+.rooms-section {
+    padding: 5rem 0;
+}
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+}
+.room-card-big {
+    background: white;
+    border-radius: 36px;
+    width: 340px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+.room-card-big:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 40px -15px rgba(0,0,0,0.2);
+}
+.room-media {
+    height: 260px;
+    background-size: cover;
+    position: relative;
+}
+.room-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #1F3B4C;
+}
+.room-detail {
+    padding: 1.8rem;
+}
+.room-detail h3 {
+    font-size: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+.room-features {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    color: #6b5b4e;
+}
+
+/* Réservation évoluée */
+.booking-zone {
+    background: linear-gradient(120deg, #1F3B4C 0%, #2b5c6f 100%);
+    padding: 5rem 0;
+    color: white;
+}
+.booking-card-enhanced {
+    background: rgba(255,255,240,0.95);
+    border-radius: 48px;
+    padding: 2rem;
+    color: #1e2a2e;
+    box-shadow: 0 30px 40px rgba(0,0,0,0.2);
+}
+.booking-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.input-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.input-modern label {
+    font-weight: 600;
+}
+.input-modern input, .input-modern select {
+    padding: 14px 18px;
+    border-radius: 60px;
+    border: 1px solid #ddd2c0;
+    background: white;
+}
+.extra-options {
+    background: #faf3e8;
+    border-radius: 32px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.price-big {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--terracotta);
+}
+.btn-reserve {
+    background: var(--terracotta);
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+footer {
+    background: #1A2C36;
+    color: #d9cfbb;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar { flex-direction: column; gap: 10px; }
+    .hero-content h2 { font-size: 2.2rem; }
+}

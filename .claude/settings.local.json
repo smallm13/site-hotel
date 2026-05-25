@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -r \"echo ini_get\\('extension_dir'\\);\")"
+    ]
+  }
+}
